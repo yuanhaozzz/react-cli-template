@@ -1,0 +1,22 @@
+import { lazy } from 'react';
+
+// 你的一级菜单
+const home = [
+    {
+        name: '首页',
+        path: '/',
+        exact: true,
+        component: lazy(() => import('@/pages/Home')),
+    },
+];
+
+// 你的一级菜单
+const Test = [
+    {
+        name: '测试',
+        path: '/test',
+        component: lazy(() => import('@/pages/Test')),
+    },
+];
+
+export default [...home, ...Test];
