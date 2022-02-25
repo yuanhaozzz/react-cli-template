@@ -2,6 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const paths = require('./paths');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/entry/index.js'),
@@ -9,6 +10,10 @@ module.exports = {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].[contenthash].js',
         publicPath: '',
+    },
+    externals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
     },
     module: {
         rules: [
@@ -41,6 +46,14 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',
+        }),
+        new copyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, '../public'),
+                    to: path.resolve(__dirname, '../dist/public'),
+                },
+            ],
         }),
     ],
 };
