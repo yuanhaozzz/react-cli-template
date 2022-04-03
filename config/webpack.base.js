@@ -11,10 +11,10 @@ module.exports = {
         filename: '[name].[contenthash].js',
         publicPath: '',
     },
-    externals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-    },
+    // externals: {
+    //     react: 'React',
+    //     'react-dom': 'ReactDOM',
+    // },
     module: {
         rules: [
             {
