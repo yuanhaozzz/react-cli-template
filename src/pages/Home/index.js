@@ -21,6 +21,7 @@ class Home extends Component {
           }
         >
           {/* <<<<<<< HEAD */}
+          {/* <<<<<<< HEAD */}
           asaa
         </button>
         <button onClick={() => this.props.history.push("/test")}>1转</button>
