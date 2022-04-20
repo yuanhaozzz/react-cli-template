@@ -18,10 +18,10 @@ function checkConflict() {
   if (arr.length > 0) {
     hasConflict = arr.find((item) => item.includes("<<<<<<< HEAD"));
   }
-  // if (hasConflict) {
-  //   errorLog(["冲突在这里：", hasConflict]);
-  //   process.exit(1);
-  // }
+  if (hasConflict) {
+    errorLog(["冲突在这里：", hasConflict]);
+    // process.exit(1);
+  }
 }
 
 errorLog(["你小子错了 知道不"]);
