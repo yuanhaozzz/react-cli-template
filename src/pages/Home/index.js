@@ -20,6 +20,7 @@ class Home extends Component {
             this.props.dispatch(setCount({ count: this.props.count + 1 }))
           }
         >
+          {/* <<<<<<< HEAD */}
           asaa
         </button>
         <button onClick={() => this.props.history.push("/test")}>1转</button>
