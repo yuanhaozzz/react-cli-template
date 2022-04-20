@@ -16,10 +16,10 @@ function checkConflict() {
   const arr = diff.split("\n");
   let hasConflict = undefined;
   if (arr.length > 0) {
-    hasConflict = arr.find((item) => item.includes("<<<<<<< HEAD"));
+    hasConflict = arr.filter((item) => item.includes("<<<<<<< HEAD"));
   }
   if (hasConflict) {
-    errorLog(["冲突在这里：", hasConflict]);
+    errorLog(["冲突在这里：", ...hasConflict]);
     // process.exit(1);
   }
 }
