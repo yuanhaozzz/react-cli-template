@@ -5,6 +5,7 @@ const execStr = (str) => {
     return execSync(str).toString().trim();
   } catch (error) {
     console.log(error);
+    process.exit(1);
   }
 };
 
@@ -43,4 +44,5 @@ const logSuccess = (arrSucc = []) => {
 module.exports = {
   execStr,
   errorLog,
+  logSuccess,
 };
