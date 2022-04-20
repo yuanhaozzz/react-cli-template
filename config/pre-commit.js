@@ -20,7 +20,7 @@ function checkConflict() {
   }
   if (hasConflict.length > 0) {
     errorLog(["冲突在这里：", ...hasConflict]);
-    // process.exit(1);
+    process.exit(1);
   }
 }
 
