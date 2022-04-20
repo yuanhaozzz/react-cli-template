@@ -30,7 +30,6 @@
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
@@ -144,5 +143,8 @@
     "hooks": {
       "pre-commit": "node config/pre-commit.js"
     }
+  },
+  "devDependencies": {
+    "husky": "^4.2.5"
   }
 }
