@@ -138,5 +138,10 @@
       "jest-watch-typeahead/testname"
     ],
     "resetMocks": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node config/pre-commit.js"
+    }
   }
 }
