@@ -9,8 +9,8 @@ const execStr = (str) => {
 };
 
 /**
- * @description 错误打印
- * @param {*} arrError 错误数组
+ * @description 错误
+ * @param {*} arrError 数组
  */
 const errorLog = (arrError) => {
   console.log(
@@ -21,6 +21,22 @@ const errorLog = (arrError) => {
   console.log(`🚨 `);
   console.log(
     "🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨"
+  );
+};
+
+/**
+ * @description 成功
+ * @param {*} arrError 数组
+ */
+const logSuccess = (arrSucc = []) => {
+  console.log(
+    "🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉"
+  );
+  console.log(`🎉 `);
+  arrSucc.forEach((succ) => console.log(`🎉 ` + succ));
+  console.log(`🎉 `);
+  console.log(
+    "🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉"
   );
 };
 
