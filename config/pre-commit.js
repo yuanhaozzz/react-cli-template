@@ -18,7 +18,7 @@ function checkConflict() {
   if (arr.length > 0) {
     hasConflict = arr.filter((item) => item.includes("<<<<<<< HEAD"));
   }
-  if (hasConflict) {
+  if (hasConflict.length > 0) {
     errorLog(["冲突在这里：", ...hasConflict]);
     // process.exit(1);
   }
