@@ -1,8 +1,21 @@
-const { execSync } = require("child_process");
+const { execSync, exec } = require("child_process");
 
 const execStr = (str) => {
   try {
     return execSync(str).toString().trim();
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
+
+const execAsync = (str) => {
+  try {
+    exec(str, function (err, value) {
+      console.log(err);
+      console.log(value);
+    });
+    // return execSync(str).toString().trim();
   } catch (error) {
     console.log(error);
     process.exit(1);
@@ -45,4 +58,5 @@ module.exports = {
   execStr,
   errorLog,
   logSuccess,
+  execAsync,
 };
