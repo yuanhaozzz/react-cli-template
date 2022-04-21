@@ -1,12 +1,16 @@
-const { errorLog, execStr, logSuccess, execAsync } = require("./common");
+const { errorLog, checkGit, logSuccess } = require("./common");
 
 /**
  * 检查冲突
  */
 function checkConflict() {
-  // const conmand = 'git grep -n -P -E "^<<<<<<<\\s|^=======$|^>>>>>>>\\s"';
-  // const conmand = "git grep -n -P -E '^<<<<<<<'";
-  // const conflicts = execAsync(conmand);
+  const arr = checkGit.split("\n");
+  conflicts = [];
+  arr.forEach((item) => {
+    if (item.match(/^<<<<<<<$|^=======$|^>>>>>>>\\s/)) {
+    }
+  });
+
   // if (conflicts) {
   //   errorLog(["错误：发现冲突，请解决完后在提交", "错误代码：", conflicts]);
   //   process.exit(1);

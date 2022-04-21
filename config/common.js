@@ -9,18 +9,7 @@ const execStr = (str) => {
   }
 };
 
-const execAsync = (str) => {
-  try {
-    exec(str, function (err, value) {
-      console.log(err);
-      console.log(value);
-    });
-    // return execSync(str).toString().trim();
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
-};
+const checkGit = execStr("git diff --cached");
 
 /**
  * @description 错误
@@ -59,4 +48,5 @@ module.exports = {
   errorLog,
   logSuccess,
   execAsync,
+  checkGit,
 };
