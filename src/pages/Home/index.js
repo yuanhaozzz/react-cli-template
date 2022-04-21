@@ -20,7 +20,7 @@ class Home extends Component {
             this.props.dispatch(setCount({ count: this.props.count + 1 }))
           }
         >
-          asaa111 ======= asaa111bbbbbbbbb >>>>>>> test
+          asaa111 asaa111bbbbbbbbb test
         </button>
         <button onClick={() => this.props.history.push("/test")}>1转</button>
       </div>

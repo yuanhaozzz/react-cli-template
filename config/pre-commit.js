@@ -43,6 +43,9 @@ function getGitFileChangeContent(hash) {
  */
 function checkForConflict(arrContents = []) {
   for (let i = 0; i < arrContents.length; i++) {
+    // if (arrContents[i].match(/^<<<<<<<\sHEAD|^=======$|^>>>>>>>$/)) {
+    //   return i + 1;
+    // }
     if (arrContents[i] === "<<<<<<< HEAD") return i + 1;
   }
   return null;
