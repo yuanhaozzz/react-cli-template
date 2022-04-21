@@ -10,7 +10,7 @@ class Test extends Component {
       <div>
         Test
         <p>
-          {'1'}
+          {"1"}
           <p>{this.props.count}</p>
         </p>
         <button onClick={() => this.props.setCount(4)}>aaa</button>

@@ -79,10 +79,15 @@ function checkGitStageFileConflict() {
 }
 
 function checkEslint() {
-  const eslint = execStr(`eslint src --ext '.js,.jsx' --fix`);
-  console.log("-------");
-  console.log(eslint);
-  console.log("-------");
+  const arrErrorMsg = [`🤯 请先解决eslint警告后在提交！`, `📦 警告如下: `];
+  let eslint = execStr(`eslint src --ext '.js,.jsx' --fix`);
+
+  const format = eslint.split("\n");
+  if (format.length > 1) {
+    arrErrorMsg.push(format);
+    logError(arrErrorMsg);
+    process.exit(1);
+  }
 }
 
 function check() {
