@@ -21,7 +21,7 @@ class Test extends Component {
 }
 
 const mapStateToProps = function (state) {
-                 console.log(1222311)
+  // console.log(1222311)
   return {
     count: state.count.count,
   };
@@ -30,7 +30,7 @@ const mapStateToProps = function (state) {
 const mapDispatchToProps = function (dispatch) {
   return {
     setCount: (data) => {
-      console.log(data);
+      // console.log(data);
       dispatch(setCount({ count: 5 }));
     },
   };
