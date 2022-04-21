@@ -78,4 +78,18 @@ function checkGitStageFileConflict() {
   }
 }
 
-checkGitStageFileConflict();
+function checkEslint() {
+  const eslint = execStr(`eslint src --ext '.js,.jsx' --fix`);
+  console.log("-------");
+  console.log(eslint);
+  console.log("-------");
+}
+
+function check() {
+  // 检查冲突
+  checkGitStageFileConflict();
+  // eslint检查
+  checkEslint();
+}
+
+check();
