@@ -10,9 +10,7 @@ function checkConflict() {
     if (item.match(/^<<<<<<<$|^=======$|^>>>>>>>\\s/)) {
     }
   });
-  // 你大爷的
-
-  // 你三大爷的
+  // 你大爷的啊啊啊
 
   // if (conflicts) {
   //   errorLog(["错误：发现冲突，请解决完后在提交", "错误代码：", conflicts]);
