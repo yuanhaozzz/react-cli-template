@@ -47,6 +47,5 @@ module.exports = {
   execStr,
   errorLog,
   logSuccess,
-  execAsync,
   checkGit,
 };
