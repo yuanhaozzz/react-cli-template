@@ -9,7 +9,7 @@ function checkConflict() {
   const conflicts = execStr(conmand);
   if (conflicts) {
     errorLog(["错误：发现冲突，请解决完后在提交", "错误代码：", conflicts]);
-    // process.exit(1);
+    process.exit(1);
   } else {
     logSuccess(["没有发现冲突"]);
   }
