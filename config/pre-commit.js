@@ -5,8 +5,8 @@ const { errorLog, execStr, logSuccess, execAsync } = require("./common");
  */
 function checkConflict() {
   // const conmand = 'git grep -n -P -E "^<<<<<<<\\s|^=======$|^>>>>>>>\\s"';
-  const conmand = "git grep -n -P -E '^<<<<<<<'";
-  const conflicts = execAsync(conmand);
+  // const conmand = "git grep -n -P -E '^<<<<<<<'";
+  // const conflicts = execAsync(conmand);
   // if (conflicts) {
   //   errorLog(["错误：发现冲突，请解决完后在提交", "错误代码：", conflicts]);
   //   process.exit(1);
