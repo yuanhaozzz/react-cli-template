@@ -1,5 +1,7 @@
 const { execSync, exec } = require("child_process");
 
+const grren = (str) => `[32m${str}[39m`;
+
 const execStr = (str) => {
   try {
     return execSync(str).toString().trim();
@@ -15,7 +17,7 @@ const checkGit = execStr("git diff --cached");
  * @description 错误
  * @param {*} arrError 数组
  */
-const errorLog = (arrError) => {
+const logError = (arrError) => {
   console.log(
     "🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨"
   );
@@ -45,7 +47,8 @@ const logSuccess = (arrSucc = []) => {
 
 module.exports = {
   execStr,
-  errorLog,
+  logError,
   logSuccess,
   checkGit,
+  grren,
 };
