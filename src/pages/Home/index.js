@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import "./style.less";
+import "./style.scss";
 
 import { setCount } from "@/store/actions";
 

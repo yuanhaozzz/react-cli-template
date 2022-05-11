@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setCount } from "@/store/actions";
 
-import "./style.less";
+import "./style.scss";
 class Test extends Component {
   render() {
     return (
