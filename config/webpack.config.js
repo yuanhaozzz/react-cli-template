@@ -191,10 +191,10 @@ module.exports = function (webpackEnv) {
           ((info) =>
             path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")),
     },
-    externals: {
-      react: "React",
-      "react-dom": "ReactDOM",
-    },
+    // externals: {
+    //   react: "React",
+    //   "react-dom": "ReactDOM",
+    // },
     cache: {
       type: "filesystem",
       version: createEnvironmentHash(env.raw),
