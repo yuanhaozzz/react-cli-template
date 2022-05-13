@@ -93,7 +93,7 @@ function checkEslint() {
 
 function check() {
   // 检查冲突
-  checkGitStageFileConflict();
+  // checkGitStageFileConflict();
   // eslint检查
   checkEslint();
 }
