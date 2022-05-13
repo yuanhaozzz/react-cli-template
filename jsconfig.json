@@ -5,12 +5,13 @@
   ],
   "include": [
     "src/**/*"
-  ],
+, "src/utils/.js"  ],
   "compilerOptions": {
     "baseUrl": "./",
     "target": "es6",
     "experimentalDecorators": true,
     "paths": {
+      "@*": ["./src/*"],
       "public/*": ["public/*"],
       "src/*": ["src/*"],
       "components": ["src/components/*"],

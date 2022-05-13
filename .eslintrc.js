@@ -38,7 +38,6 @@ module.exports = {
   rules: {
     indent: [1, 2],
     semi: "off",
-    "no-console": 1,
     "comma-dangle": [
       "error",
       {
@@ -150,7 +149,7 @@ module.exports = {
     ],
     "no-useless-computed-key": "warn",
     "no-useless-concat": "warn",
-    "no-useless-constructor": "warn",
+    "no-useless-constructor": 0,
     "no-useless-escape": "warn",
     "no-useless-rename": [
       "warn",
