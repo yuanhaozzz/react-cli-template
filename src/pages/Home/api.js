@@ -1,7 +1,6 @@
-import { url } from "@/api";
-import request from "@/utils/request";
-
-const { get, post, postform } = request({ url });
+import ApiUrl from "src/api/apiUrl";
+import api from "src/api";
+const { get } = api({ baseURL: ApiUrl.root });
 
 export const getList = () => {
   return get(

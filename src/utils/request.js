@@ -1,9 +1,14 @@
 import axios from "axios";
 
-import { showLoading, hideLoading } from "src/utils/popup";
+function noop() {}
 
-function api(options = {}) {
-  let requestQueue = [];
+function initApi(
+  options = {},
+  requestInterceptors = noop,
+  requestInterceptorsError = noop,
+  responseInterceptors = noop,
+  responseInterceptorsError = noop
+) {
   let instance = axios.create({
     baseURL: options.url,
     timeout: 1000,
@@ -16,103 +21,44 @@ function api(options = {}) {
    * @description 请求拦截器
    */
   instance.interceptors.request.use(
-    function (config) {
-      // 添加一些参数
-      //   config.params = {
-      //     ...params,
-      //   };
-      addQueue(config);
-      // 打开loading
-      showLoading();
-      // 2s强制关闭
-      setTimeout(() => {
-        hideLoading();
-      }, 2000);
-      return config;
-    },
-    function (error) {
-      hideLoading();
-      clearQueue();
-      // 对请求错误做些什么
-      return Promise.reject(error);
-    }
+    requestInterceptors,
+    requestInterceptorsError
   );
 
   /**
    * @description 响应拦截器
    */
   instance.interceptors.response.use(
-    function (response) {
-      const { data, config } = response;
-      deleteQueue(config);
-      // 处理业务报错码
-      if (data.dm_error !== 0) {
-        alert(data.error_msg);
-        return Promise.reject(data.error_msg);
-      }
-      return data.data;
-    },
-    function (error) {
-      hideLoading();
-      clearQueue();
-      return Promise.reject(error);
-    }
+    responseInterceptors,
+    responseInterceptorsError
   );
 
-  /**
-   * @description 添加 使用队列方式，防止重复请求接口
-   * @param {@} config
-   */
-  function addQueue(config) {
-    const { url, isAddQueue } = config;
-    // 直接加入不判断是否存在于队列中
-    if (isAddQueue) {
-      requestQueue.push({ url });
-    } else {
-      // 没有查到 加入队列中
-      const findUrl = requestQueue.find((item) => item.url !== url);
-      if (!findUrl) {
-        requestQueue.push({ url });
-      }
-    }
+  function get(config) {
+    return function (url) {
+      return instance.get(url, config);
+    };
   }
 
-  /**
-   * @description 删除
-   * @param {@} config
-   */
-  function deleteQueue(config) {
-    const { url } = config;
-    const findUrlIndex = requestQueue.findIndex((item) => item.url === url);
-    if (findUrlIndex >= 0) {
-      requestQueue.splice(findUrlIndex, 1);
-    }
-    if (requestQueue.length <= 0) {
-      setTimeout(() => {
-        hideLoading();
-      }, 500);
-    }
-  }
-
-  function clearQueue() {
-    requestQueue = [];
-  }
-
-  function get(url, config) {
-    return instance.get(url, config);
-  }
-
-  function post(url, params, config) {
-    return instance.post(url, params, config);
+  function post(config) {
+    return function (url, params) {
+      return instance.post(url, params, config);
+    };
   }
 
   function postForm() {}
 
-  return {
-    get,
-    post,
-    postForm,
-  };
+  /**
+   * @description 可以修改初始化配置的url
+   * @param {*} baseUrl
+   */
+  function api(config) {
+    return {
+      get: get(config),
+      post: post(config),
+      postForm,
+    };
+  }
+  return api;
 }
 
-export default api;
+export default initApi;

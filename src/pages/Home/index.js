@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { getList } from "./api";
 // import { toast } from "@/utils/message";
-import { DatePicker, Space } from "antd";
 
 import "./style.scss";
 
@@ -35,13 +34,6 @@ class Home extends Component {
   render() {
     return (
       <div className="home-wrapper">
-        <Space direction="vertical">
-          <DatePicker />
-          <DatePicker picker="week" />
-          <DatePicker picker="month" />
-          <DatePicker picker="quarter" />
-          <DatePicker picker="year" />
-        </Space>
         <h2>欢迎来到浩哥基础模版</h2>
         <div className="home-content flex-center">
           <p>{this.props.count}</p>
