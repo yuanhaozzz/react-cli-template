@@ -20,6 +20,8 @@ const paths = require("./paths");
 const modules = require("./modules");
 const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const ForkTsCheckerWebpackPlugin =
   process.env.TSC_COMPILE_ON_ERROR === "true"
     ? require("react-dev-utils/ForkTsCheckerWarningWebpackPlugin")
@@ -436,6 +438,7 @@ module.exports = function (webpackEnv) {
       ].filter(Boolean),
     },
     plugins: [
+      // new BundleAnalyzerPlugin(),
       new HtmlWebpackPlugin(
         Object.assign(
           {},
